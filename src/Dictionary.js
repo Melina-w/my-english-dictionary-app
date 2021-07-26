@@ -5,7 +5,7 @@ let [keyWord, setKeyWord]= useState("")
 
 function search(event){
     event.preventDefault();
-    alert(`searching for ${keyWord} definition`);
+    alert(`Searching for the definition of : ${keyWord} `);
 }
 
 function handleKeyWordChange(event){
