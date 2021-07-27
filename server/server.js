@@ -1,15 +1,23 @@
-const path= require ('path')
-const express= require('express')
-const cors= require('cors')
+const path = require('path')
+const express = require('express')
+const cors = require('cors')
+const { useState } = require('react')
 
-cosnt server= express()
-
+const server = express()
 server.use(express.json())
 server.use(express.static(path.join(__diname, './public')))
 server.use(cors('*'))
 
-server.get('/meaning', (req,res) => {
-    const meaning =[{partOfSpeech}]
-})
+server.get('/result', (req, res) => {
+    const [result] = useState({
+        word: "",
+        phoneticsText: "",
+        phoneticsAudio: "",
+        partOfSpeech: "",
+        definition: "",
+        example: ""
+    })
+}) 
+module.exports = server
 
 
