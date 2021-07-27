@@ -8,7 +8,7 @@ function search(event){
     event.preventDefault();
     alert(`Searching for the definition of : ${keyWord} `);
 }
-
+// documentation https://dictionaryapi.dev/
 const apiUrl=`https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyWord}`;
 axios.get(apiUrl).then(handleResponse)
 
@@ -20,7 +20,7 @@ function handleResponse(response){
 console.log(response.data);
 }
 
-
+// documentation https://www.npmjs.com/package/owlbot-js
 // const Owlbot = require('owlbot-js'); 
 // const apiToken= '9b12117f96952035c3f59ffe358bac8e3665b0bd';
 // const client = Owlbot(apiToken);
