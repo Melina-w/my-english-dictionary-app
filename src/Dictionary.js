@@ -6,9 +6,8 @@ const Owlbot = require("owlbot-js");
 const apiToken = "9b12117f96952035c3f59ffe358bac8e3665b0bd";
 const client = Owlbot(apiToken);
 
-
 // documentation https://dictionaryapi.dev/
-const apiUrl=`https://api.dictionaryapi.dev/api/v2/entries/en_US/`;
+const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/`;
 
 export default function Dictionary() {
   let [keyWord, setKeyWord] = useState("");
@@ -17,15 +16,18 @@ export default function Dictionary() {
     event.preventDefault();
     alert(`Searching for the definition of : ${keyWord} `);
 
+      //   how to await for two promises.
+    let promise1 = client.define(`${keyWord}`);
+    let promise2 = axios
+      .get(apiUrl + keyWord)
+      .then((response) => response.data);
 
-    client.define(`${keyWord}`).then(handleResponse);
-    axios.get(apiUrl + keyWord)
-    .then((response)=> response.data)
-    .then(handleResponse)
+    const retrieveAll = async function () {
+      let result = await Promise.all([promise1, promise2]).then(handleResponse);
+    };
+    retrieveAll();
   }
 
-//   how to await for two promises.
-  
   function handleKeyWordChange(event) {
     setKeyWord(event.target.value);
   }
