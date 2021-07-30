@@ -1,39 +1,25 @@
 import React, { useState } from "react";
 import axios from "axios";
-
-// documentation https://www.npmjs.com/package/owlbot-js
-const Owlbot = require("owlbot-js");
-const apiToken = "9b12117f96952035c3f59ffe358bac8e3665b0bd";
-const client = Owlbot(apiToken);
+import Results from "./Results";
 
 // documentation https://dictionaryapi.dev/
 const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/`;
 
 export default function Dictionary() {
-  let [keyWord, setKeyWord] = useState("");
+  const [keyWord, setKeyWord] = useState("");
+  const [results, setResults] = useState(null);
 
   function search(event) {
     event.preventDefault();
-    alert(`Searching for the definition of : ${keyWord} `);
 
-      //   how to await for two promises.
-    let promise1 = client.define(`${keyWord}`);
-    let promise2 = axios
-      .get(apiUrl + keyWord)
-      .then((response) => response.data);
+    axios.get(apiUrl + keyWord).then(handleResponse);
 
-    const retrieveAll = async function () {
-      let result = await Promise.all([promise1, promise2]).then(handleResponse);
-    };
-    retrieveAll();
+    function handleResponse(response) {
+      setResults(response.data[0]);
+    }
   }
-
   function handleKeyWordChange(event) {
     setKeyWord(event.target.value);
-  }
-
-  function handleResponse(response) {
-    console.log(response);
   }
 
   return (
@@ -48,6 +34,7 @@ export default function Dictionary() {
       <button type="search" className="btn">
         Search
       </button>
+      <Results results={results} />
     </form>
   );
 }
