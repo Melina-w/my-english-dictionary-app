@@ -8,5 +8,8 @@
     "start": "node server.js"
   },
   "author": "melina-waigant",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "netlify-cli": "^5.3.1"
+  }
 }
