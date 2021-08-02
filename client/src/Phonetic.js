@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function Phonetic(props) {
+  // insteaad of getting the html element with getDocumentById &hardcoding the id, use useRef hook
+  const audio = useRef(null);
+
   function playPronunciation(e) {
     e.preventDefault();
-    const audio = document.getElementById("pronunciation");
     if (!audio) return;
-    audio.play();
+    // return the current value of the element audio
+    audio.current.play();
   }
   return (
     <div className="phonetic">
-      <audio src={props.phonetic.audio} id="pronunciation"></audio>
+      {/* call the useRef. */}
+      <audio src={props.phonetic.audio} ref={audio}></audio>
       <FontAwesomeIcon icon={faVolumeUp} onClick={playPronunciation} />
       {props.phonetic.text}
     </div>
