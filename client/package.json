@@ -44,10 +44,10 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^10.3.1",
     "netlify-cli": "^5.3.1",
-    "postcss": "^7.0.36",
+    "postcss": "^8.3.6",
     "prettier": "^2.3.2",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
+    "tailwindcss": "^2.2.7"
   }
 }

@@ -1,6 +1,7 @@
 import "./App.css";
 import Dictionary from "./Dictionary";
 import OpenSourceCode from "./OpenSourceCode";
+import "tailwindcss/tailwind.css";
 
 function App() {
   return (
