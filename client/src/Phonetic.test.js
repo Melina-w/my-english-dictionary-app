@@ -1,17 +1,16 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Phonetic from "./Phonetic";
 
 it("renders phonetic audio", () => {
-  render(
+  const { container, getByTestId, getAllByText } = render(
     <Phonetic
       phonetic={{
-        phonetic: {
-          text: "",
-          audio: "",
-        },
+        text: "audiotest",
+        audio: "https://my-audio-link.mp3",
       }}
     />
   );
-  expect(screen.getByTestId("audio")).toBeInTheDocument();
+  expect(getByTestId("audio"));
+  console.log(getAllByText("audiotest"));
 });
