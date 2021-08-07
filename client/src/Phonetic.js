@@ -18,6 +18,7 @@ export default function Phonetic(props) {
       {/* call the useRef. */}
       <audio src={props.phonetic.audio} ref={audio} data-testid="audio"></audio>
       <FontAwesomeIcon icon={faVolumeUp} onClick={playPronunciation} />
+
       {props.phonetic.text}
     </div>
   );
