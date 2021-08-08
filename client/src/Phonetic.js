@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function Phonetic(props) {
-  // console.log(JSON.stringify(props));
+  console.log(props.phonetic.audio);
   // insteaad of getting the html element with getDocumentById &hardcoding the id, use useRef hook
 
   const audio = useRef(null);
@@ -18,7 +18,6 @@ export default function Phonetic(props) {
       {/* call the useRef. */}
       <audio src={props.phonetic.audio} ref={audio} data-testid="audio"></audio>
       <FontAwesomeIcon icon={faVolumeUp} onClick={playPronunciation} />
-
       {props.phonetic.text}
     </div>
   );

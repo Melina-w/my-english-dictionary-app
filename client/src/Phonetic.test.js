@@ -1,8 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import Phonetic from "./Phonetic";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+
+afterEach(cleanup);
 
 it("renders phonetic audio", () => {
   // arrange & act
@@ -19,4 +21,13 @@ it("renders phonetic audio", () => {
   expect(getByTestId("audio"));
   expect(getAllByText("audiotest"));
   expect(container.querySelector('[data-icon="volume-up"]')).toBeTruthy();
+});
+
+it("match snapshot", () => {
+  const { asFragment } = render(
+    <Phonetic
+      phonetic={{ text: "audiotest", audio: "https://my-audio-link.mp3" }}
+    />
+  );
+  expect(asFragment()).toMatchSnapshot();
 });
