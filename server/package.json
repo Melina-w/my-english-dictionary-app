@@ -10,6 +10,7 @@
   "author": "melina-waigant",
   "license": "ISC",
   "devDependencies": {
-    "netlify-cli": "^5.3.1"
+    "netlify-cli": "^5.3.1",
+    "supertest": "^6.1.5"
   }
 }
