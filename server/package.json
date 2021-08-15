@@ -4,13 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node server.js"
   },
   "author": "melina-waigant",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^27.0.6",
     "netlify-cli": "^5.3.1",
     "supertest": "^6.1.5"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
   }
 }
