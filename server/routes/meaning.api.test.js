@@ -1,15 +1,21 @@
 const request = require("supertest");
 const server = require("../server");
+const expectedResponse = require("./response.json");
+const dictionaryApi = require("./dictionaryApi");
 
-test("GET /meaning/word", () => {
-  //arrange
+jest.mock("./dictionaryApi");
 
-  // act
+test("GET /meaning/word", (done) => {
+  dictionaryApi.getMeaningOfWord.mockImplementation(() => {
+    return [expectedResponse];
+  });
   request(server)
-    .get("/meaning/word")
+    .get("/meaning/hello")
     .expect(200)
     .end((err, res) => {
       expect(err).toBeFalsy();
-      // Assert
+      expect(res.body).toStrictEqual(expectedResponse);
+      expect(dictionaryApi.getMeaningOfWord).toBeCalledWith("hello");
+      done();
     });
 });

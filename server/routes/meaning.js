@@ -1,10 +1,11 @@
 const express = require("express");
-
+const axios = require("axios");
+const { getMeaningOfWord } = require("./dictionaryApi");
 const router = express.Router();
 
-module.exports = router;
-
-router.get("/:word", async (req, res) => {
-  console.log(`${req.params.word}`);
-  res.json(req.params);
+router.get("/:word", (req, res) => {
+  const result = getMeaningOfWord(req.params.word);
+  res.json(result[0]);
 });
+
+module.exports = router;
