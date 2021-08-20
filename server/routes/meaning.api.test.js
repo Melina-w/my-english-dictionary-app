@@ -19,3 +19,5 @@ test("GET /meaning/word", (done) => {
       done();
     });
 });
+
+// test to check error
