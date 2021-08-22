@@ -20,4 +20,15 @@ test("GET /meaning/word", (done) => {
     });
 });
 
-// test to check error
+it("responds with 500 and error on getMeaningOfWOrd rejection", () => {
+  dictionaryApi.getMeaningOfWord.mockImplementation(() =>
+    Promise.reject(new Error("mock expectedResponse error"))
+  );
+  return request(server)
+    .get("/meaning/hello")
+    .expect(500)
+    .then((err) => {
+      expect(err.text).toBe("mock expectedResponse error");
+      return null;
+    });
+});

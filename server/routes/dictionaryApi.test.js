@@ -14,3 +14,11 @@ test("getMeaningOfWord is called by a word", async () => {
     `https://api.dictionaryapi.dev/api/v2/entries/en_US/dog`
   );
 });
+
+test("getMeaningOfWord return err when api call fails", async () => {
+  axios.get.mockImplementation(() => {
+    // axios has a property data, and inside it has the responseExpected
+    return Promise.reject(new Error("public api failure"));
+  });
+  return expect(getMeaningOfWord()).rejects.toThrow("Couldn't fetch meaning");
+});
