@@ -1,5 +1,5 @@
 const { getImageOfWord } = require("./imageApi");
-const expectedResponse = require("./image.json");
+const expectedResponse = require("./imageApiResponse.json");
 const axios = require("axios");
 
 jest.mock("axios");
