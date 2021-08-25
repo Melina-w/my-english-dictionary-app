@@ -1,3 +1,17 @@
+## Setup
+
+To get started, clone this repo and then:
+
+```
+cd my-english-dictionary-app
+cd client
+npm install
+npm start
+cd server
+nom install
+npm start
+```
+
 :bulb: **Reason this repo was created.**
 
 I started my-english-dictionary-app with the desire to keep on learning and practising new technologies. After spending a huge amount of time coding during bootcamp, I created a routine that involves coding everyday. Once Enspiral Dev Academy programme came to an end, I wanted to do something significant with all I have learnt, so I had this idea of creating a dictionary.
