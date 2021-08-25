@@ -10,4 +10,4 @@ server.use(cors("*"));
 
 module.exports = server;
 
-server.use("/meaning", meaning);
+server.use("/api/v1/meaning", meaning);

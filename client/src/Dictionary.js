@@ -3,7 +3,7 @@ import axios from "axios";
 import Results from "./Results";
 
 // documentation https://dictionaryapi.dev/
-const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/`;
+const apiUrl = `/api/v1/meaning/`;
 
 export default function Dictionary() {
   const [keyWord, setKeyWord] = useState("");
@@ -15,12 +15,13 @@ export default function Dictionary() {
     axios.get(apiUrl + keyWord).then(handleResponse);
 
     function handleResponse(response) {
-      setResults(response.data[0]);
+      setResults(response.data);
     }
   }
   function handleKeyWordChange(event) {
     setKeyWord(event.target.value);
   }
+  console.log(results);
 
   return (
     <form onSubmit={search}>

@@ -6,6 +6,7 @@ jest.mock("axios");
 
 test("getImageOfWord is called by word", async () => {
   axios.get.mockImplementation(() => {
+    // axios has a property data, and inside it has the responseExpected
     return Promise.resolve({ data: expectedResponse });
   });
   expect(await getImageOfWord("lockdown")).toStrictEqual(expectedResponse);
@@ -22,7 +23,6 @@ test("getImageOfWord is called by word", async () => {
 
 test("getImageOfWord return err when api call fails", async () => {
   axios.get.mockImplementation(() => {
-    // axios has a property data, and inside it has the responseExpected
     return Promise.reject(new Error("pexels api failure"));
   });
   return expect(getImageOfWord()).rejects.toThrow("Couldn't fetch image");
