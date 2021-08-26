@@ -21,6 +21,15 @@ export default function Results(props) {
             </div>
           );
         })}
+        <div>
+          <a
+            href={props.results.image.original}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={props.results.image.landscape} />
+          </a>
+        </div>
       </div>
     );
   } else {

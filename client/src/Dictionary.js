@@ -21,7 +21,6 @@ export default function Dictionary() {
   function handleKeyWordChange(event) {
     setKeyWord(event.target.value);
   }
-  console.log(results);
 
   return (
     <form onSubmit={search}>
