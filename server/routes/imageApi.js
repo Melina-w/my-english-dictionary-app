@@ -3,7 +3,7 @@ const axios = require("axios");
 async function getImageOfWord(word) {
   try {
     const response = await axios.get(
-      `https://api.pexels.com/v1/search?query=${word}&per_page=1`,
+      `https://api.pexels.com/v1/search?query=${word}&per_page=9`,
       {
         headers: {
           Authorization:

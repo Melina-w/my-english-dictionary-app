@@ -21,15 +21,15 @@ export default function Results(props) {
             </div>
           );
         })}
-        <div>
-          <a
-            href={props.results.image.original}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={props.results.image.landscape} />
-          </a>
-        </div>
+        {props.results.image.map((image, index) => {
+          return (
+            <div key={index}>
+              <a href={image.original} target="_blank" rel="noreferrer">
+                <img src={image.landscape} />
+              </a>
+            </div>
+          );
+        })}
       </div>
     );
   } else {

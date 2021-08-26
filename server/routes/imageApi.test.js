@@ -11,7 +11,7 @@ test("getImageOfWord is called by word", async () => {
   });
   expect(await getImageOfWord("lockdown")).toStrictEqual(expectedResponse);
   expect(axios.get).toBeCalledWith(
-    `https://api.pexels.com/v1/search?query=lockdown&per_page=1`,
+    `https://api.pexels.com/v1/search?query=lockdown&per_page=9`,
     {
       headers: {
         Authorization:

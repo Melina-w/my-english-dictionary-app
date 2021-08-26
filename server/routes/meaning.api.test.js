@@ -18,7 +18,7 @@ test("GET /meaning/word", (done) => {
   });
 
   request(server)
-    .get("/meaning/hello")
+    .get("/api/v1/meaning/hello")
     .expect(200)
     .end((err, res) => {
       expect(err).toBeFalsy();
@@ -37,7 +37,7 @@ it("responds with 500 and error on getMeaningOfWOrd & getImageOfWord rejection",
     Promise.reject(new Error("mock expectedResponse error"));
   });
   return request(server)
-    .get("/meaning/hello")
+    .get("/api/v1/meaning/hello")
     .expect(500)
     .then((err) => {
       expect(err.text).toBe("mock expectedResponse error");
