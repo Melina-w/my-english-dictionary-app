@@ -2,19 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    .btn{
-        @apply bg-blue-600 text-white rounded font-bold py-2 px-4 m-5;
-    }
-    .btn:hover{
-        @apply bg-blue-400;
-    }
-
-
+@layer base {
+  .btn {
+    @apply bg-blue-600 text-white rounded font-bold py-2 px-4 m-5;
+  }
+  .btn:hover {
+    @apply bg-blue-400;
+  }
 }
 
-@layer utilities{
-    .input{
-        @apply space-x-4;
-    }
+@layer utilities {
+  .input {
+    @apply space-x-4;
+  }
 }
