@@ -27,16 +27,16 @@ export default function Dictionary() {
   return (
     <div
       style={{ backgroundImage: `url(${spellBook})` }}
-      className=" relative h-2/5 bg-center bg-contain bg-no-repeat w-3/6 m-auto"
+      className="relative bg-center bg-contain bg-no-repeat m-auto w-2/3 h-1/4 md:w-3/6 md:h-2/5 lg:w-1/3 lg:h-1/3"
     >
       <form
         onSubmit={search}
-        className=" absolute right-1/4 bottom-2/3 rounded-lg w-1/4 "
+        className="absolute rounded-lg bottom-1/2 right-14 w-1/4 md:right-1/4 md:bottom-3/5 md:w-1/4 lg:w-1/4 lg:right-1/4"
       >
         <input
           placeholder="Type a word"
           type="text"
-          className="input "
+          className="input text-sm w-full"
           autoFocus={true}
           onChange={handleKeyWordChange}
         ></input>
