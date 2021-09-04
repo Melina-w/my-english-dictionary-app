@@ -5,8 +5,10 @@ import Phonetic from "./Phonetic";
 export default function Results(props) {
   if (props.results) {
     return (
-      <div>
-        <h2>{props.results.word}</h2>
+      <div className="pt-96 cursor-default">
+        <h2 className="capitalize text-left text-black text-3xl font-bold">
+          {props.results.word}
+        </h2>
         {props.results.phonetics.map((phonetic, index) => {
           return (
             <div key={index}>
@@ -24,8 +26,13 @@ export default function Results(props) {
         {props.results.image.map((image, index) => {
           return (
             <div key={index}>
-              <a href={image.original} target="_blank" rel="noreferrer">
-                <img src={image.landscape} />
+              <a
+                href={image.original}
+                target="_blank"
+                rel="noreferrer"
+                alt="image from pexels"
+              >
+                <img src={image.landscape} alt="pexels image" />
               </a>
             </div>
           );

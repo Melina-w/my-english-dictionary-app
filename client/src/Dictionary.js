@@ -40,9 +40,9 @@ export default function Dictionary() {
           autoFocus={true}
           onChange={handleKeyWordChange}
         ></input>
-        {/* <button type="search" className="btn">
+        <button type="search" className="btn">
           Search
-        </button> */}
+        </button>
       </form>
       <Results results={results} />
       <OpenSourceCode />
