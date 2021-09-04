@@ -5,10 +5,11 @@ const router = express.Router();
 
 router.get("/:word", async (req, res) => {
   try {
-    const meaningResult = await getMeaningOfWord(req.params.word);
-    const imageResult = await getImageOfWord(req.params.word);
-    const response = meaningResult[0];
-    response.image = imageResult.photos.map((photo, index) => {
+    const meaningPromise = getMeaningOfWord(req.params.word);
+    const imagePromise = getImageOfWord(req.params.word);
+    const result = await Promise.all([meaningPromise, imagePromise]);
+    response = result[0][0];
+    response.image = result[1].photos.map((photo, index) => {
       return photo.src;
     });
     res.json(response);
