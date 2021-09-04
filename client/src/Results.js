@@ -32,7 +32,7 @@ export default function Results(props) {
                 rel="noreferrer"
                 alt="image from pexels"
               >
-                <img src={image.landscape} alt="pexels image" />
+                <img src={image.landscape} alt="pexels response" />
               </a>
             </div>
           );

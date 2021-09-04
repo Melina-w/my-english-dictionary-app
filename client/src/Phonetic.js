@@ -14,7 +14,7 @@ export default function Phonetic(props) {
     audio.current.play();
   }
   return (
-    <div className="phonetic" className="text-left">
+    <div className="phonetic text-left">
       {/* call the useRef. */}
       <audio src={props.phonetic.audio} ref={audio} data-testid="audio"></audio>
       <FontAwesomeIcon
