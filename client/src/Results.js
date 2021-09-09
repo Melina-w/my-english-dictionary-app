@@ -1,4 +1,5 @@
 import React from "react";
+import DictionaryTabs from "./DictionaryTabs";
 import Meaning from "./Meaning";
 import Phonetic from "./Phonetic";
 
@@ -16,13 +17,11 @@ export default function Results(props) {
             </div>
           );
         })}
-        {props.results.meanings.map((meaning, index) => {
-          return (
-            <div key={index}>
-              <Meaning meaning={meaning} />
-            </div>
-          );
-        })}
+
+        {props.results.meanings.length > 0 ? (
+          <DictionaryTabs meanings={props.results.meanings} />
+        ) : null}
+
         {props.results.image.map((image, index) => {
           return (
             <div key={index}>
