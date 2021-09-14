@@ -3,9 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function Phonetic(props) {
-  // console.log(JSON.stringify(props));
-  // insteaad of getting the html element with getDocumentById &hardcoding the id, use useRef hook
-
   const audio = useRef(null);
   function playPronunciation(e) {
     e.preventDefault();

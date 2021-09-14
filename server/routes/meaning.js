@@ -8,8 +8,8 @@ router.get("/:word", async (req, res) => {
     const meaningPromise = getMeaningOfWord(req.params.word);
     const imagePromise = getImageOfWord(req.params.word);
     const result = await Promise.all([meaningPromise, imagePromise]);
-    response = result[0][0];
-    response.image = result[1].photos.map((photo, index) => {
+    let response = result[0][0];
+    response.image = result[1].photos.map((photo) => {
       return photo.src;
     });
     res.json(response);

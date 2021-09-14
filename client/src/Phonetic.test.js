@@ -17,12 +17,12 @@ describe("Phonetic", () => {
         }}
       />
     );
-
     // assert
     expect(getByTestId("audio"));
-    expect(getAllByText("audiotest"));
+    expect(getAllByText("/audiotest/"));
     expect(container.querySelector('[data-icon="volume-up"]')).toBeTruthy();
   });
+
   test("match snapshot", () => {
     const { asFragment } = render(
       <Phonetic
@@ -32,7 +32,6 @@ describe("Phonetic", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  // very very difficult test!
   test("calls playPronunciation when clicked", () => {
     // Arrange// playSpy create a spy on the playFunction HTML media,
     // to check that playAudio is executed

@@ -29,7 +29,7 @@ test("GET /meaning/word", (done) => {
     });
 });
 
-it("responds with 500 and error on getMeaningOfWOrd & getImageOfWord rejection", () => {
+it("responds with 500 and error on getMeaningOfWOrd & getImageOfWord rejection", (done) => {
   dictionaryApi.getMeaningOfWord.mockImplementation(() =>
     Promise.reject(new Error("mock expectedResponse error"))
   );
@@ -41,6 +41,6 @@ it("responds with 500 and error on getMeaningOfWOrd & getImageOfWord rejection",
     .expect(500)
     .then((err) => {
       expect(err.text).toBe("mock expectedResponse error");
-      return null;
+      done();
     });
 });

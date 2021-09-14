@@ -4,7 +4,6 @@ import Results from "./Results";
 import OpenSourceCode from "./OpenSourceCode";
 import spellBook from "./image/spellBook.jpg";
 
-// documentation https://dictionaryapi.dev/
 const apiUrl = `/api/v1/meaning/`;
 
 export default function Dictionary() {
@@ -40,7 +39,7 @@ export default function Dictionary() {
           autoFocus={true}
           onChange={handleKeyWordChange}
         ></input>
-        <button type="search" className="btn">
+        <button type="submit" className="btn">
           Search
         </button>
       </form>
