@@ -20,21 +20,22 @@ export default function Results(props) {
         {props.results.meanings.length > 0 ? (
           <DictionaryTabs meanings={props.results.meanings} />
         ) : null}
-
-        {props.results.image.map((image, index) => {
-          return (
-            <div key={index}>
-              <a
-                href={image.original}
-                target="_blank"
-                rel="noreferrer"
-                alt="image from pexels"
-              >
-                <img src={image.landscape} alt="pexels response" />
-              </a>
-            </div>
-          );
-        })}
+        <div className="grid grid-cols-3 grid-rows-3 gap-4">
+          {props.results.image.map((image, index) => {
+            return (
+              <div key={index}>
+                <a
+                  href={image.original}
+                  target="_blank"
+                  rel="noreferrer"
+                  alt="image from pexels"
+                >
+                  <img src={image.landscape} alt="pexels response" />
+                </a>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   } else {
